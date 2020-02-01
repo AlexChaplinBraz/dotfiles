@@ -1,0 +1,79 @@
+let mapleader =" "
+
+" Some basics:
+	set number relativenumber
+	set colorcolumn=80
+	highlight ColorColumn ctermbg=black guibg=black
+	set tabstop=4
+	set softtabstop=0 noexpandtab
+	set shiftwidth=4
+	set clipboard+=unnamedplus
+
+" Turn off search highlighting until next search:
+	nnoremap <F3> :noh<CR>
+
+" Toggle whitespace view:
+	set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+	noremap <F5> :set list!<CR>
+	inoremap <F5> <C-o>:set list!<CR>
+	cnoremap <F5> <C-c>:set list!<CR>
+
+" Enable autocompletion:
+	set wildmode=longest,list
+
+" Disable automatic commenting on newline:
+	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Spell-check:
+	map <leader>o :setlocal spell! spelllang=en_gb<CR>
+
+" Open splits on bottom and right:
+	set splitbelow splitright
+
+" Remap split navigation to save a keypress:
+	map <C-h> <C-w>h
+	map <C-j> <C-w>j
+	map <C-k> <C-w>k
+	map <C-l> <C-w>l
+
+" Check file in shellcheck:
+	map <leader>s :!clear && shellcheck %<CR>
+
+" Keep cursor in the center:
+set scrolloff=5
+if !exists('*VCenterCursor')
+  augroup VCenterCursor
+  au!
+  au OptionSet *,*.*
+    \ if and( expand("<amatch>")=='scrolloff' ,
+    \         exists('#VCenterCursor#WinEnter,WinNew,VimResized') )|
+    \   au! VCenterCursor WinEnter,WinNew,VimResized|
+    \ endif
+  augroup END
+  function VCenterCursor()
+    if !exists('#VCenterCursor#WinEnter,WinNew,VimResized')
+      let s:default_scrolloff=&scrolloff
+      let &scrolloff=winheight(win_getid())/2
+      au VCenterCursor WinEnter,WinNew,VimResized *,*.*
+        \ let &scrolloff=winheight(win_getid())/2
+    else
+      au! VCenterCursor WinEnter,WinNew,VimResized
+      let &scrolloff=s:default_scrolloff
+    endif
+  endfunction
+endif
+
+nnoremap <leader>zz :call VCenterCursor()<CR>
+
+" Automatically delete all trailing whitespace on save:
+	autocmd BufWritePre * %s/\s\+$//e
+
+" Run xrdb whenever Xdefaults or Xresources are updated.
+	autocmd BufWritePost *Xdefaults,*Xresourses !xrdb %
+
+" Update binds when sxhkdrc is updated:
+	autocmd BufWritePost *sxhkdrc !pkill -SIGUSR1 sxhkd
+
+" Make calcurse notes' syntax markdown:
+	autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
+	autocmd BufRead,BufNewFile $HOME/.local/share/calcurse/notes/* set filetype=markdown

@@ -1,0 +1,7 @@
+set hidden true
+set previewer /home/alex/.local/bin/preview
+set color256 true
+
+cmd open $xdg-open "$f"
+
+map x delete

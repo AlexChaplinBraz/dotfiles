@@ -1,0 +1,86 @@
+# bspwm:
+super + {F4,F12}
+	bspc {quit,wm -r}
+super + {_,shift + }q
+	bspc node -{c,k}
+super + m
+	bspc desktop -l next
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+super + {Tab,grave}
+	bspc {node,desktop} -f last
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + ctrl + s
+	bspc node -g sticky
+super + {_,shift +} c
+	bspc node -f {next,prev}.local
+super + ctrl + {Left,Right}
+	bspc desktop -f {prev,next}.local
+
+# Open programs:
+super + Return
+	$TERMINAL
+super + shift + d
+	dmenu_run
+super + d
+	$TERMINAL -e ddiropen $LSHARE/dirmarks \
+	"lf,vifm,sxiv -ta,sxiv -tar,sxiv -afr"
+super + p
+	dpass
+super + e
+	$TERMINAL -e dedit
+super + alt + e
+	$TERMINAL -e dedit -r
+super + r
+	$TERMINAL -n dman -e dman
+super + shift + e
+	demoji
+super + w
+	dbuku
+super + o ; {b,m,n,p,c,y,s}
+	{$BROWSER,\
+	$TERMINAL -n ncmpcpp -e ncmpcpp,\
+	$TERMINAL -n newsboat -e newsboat,\
+	$TERMINAL -n podboat -e podboat,\
+	$TERMINAL -n calcurse -e calcurse,\
+	$TERMINAL -n dyt -e dyt,\
+	$TERMINAL -n dnewsh -e dnewsh}
+super + g ; {b,r,a}
+	google-chrome-stable --profile-directory={Default,"Profile 1","Profile 2"}
+super + b ; {a,b,r,c}
+	brave --profile-directory={Default,"Profile 1","Profile 2","Profile 3"}
+super + shift + b ; {m,c}
+	{blmas,blcomp}
+
+# Function keys:
+XF86AudioMute
+	amixer sset Master toggle
+XF86Audio{Lower,Raise}Volume
+	amixer sset Master 5%{-,+}
+XF86AudioPlay
+	mpc toggle
+XF86Audio{Prev,Next}
+	mpc {prev,next}
+super + {_,shift +} XF86AudioPrev
+	mpc seek -{10,60}
+super + {_,shift +} XF86AudioNext
+	mpc seek +{10,60}
+#XF86HomePage
+### No use for it yet.
+super + XF86Explorer
+	dmnt
+
+# System prompts:
+super + alt + s
+	dprompt "Suspend?" "sudo systemctl suspend"
+super + alt + l
+	dprompt "Lock?" "sxlock -ld"
+#super + alt + h
+	#dprompt "Hibernate?" "sudo systemctl hibernate"
+super + alt + r
+	dprompt "Reboot?" "reboot"
+super + alt + p
+	dprompt "Power off?" "poweroff"

@@ -1,0 +1,10 @@
+$HOME	HOM
+$HOME/proj	PRO
+$LBIN	BIN
+$XDG_CONFIG_HOME	CON
+$XDG_PICTURES_DIR	IMG
+$XDG_DATA_HOME	SHA
+$HOME/wine/games	GAM
+/etc	ETC
+/usr/share/doc	DOC
+/backup/home/versioning	VER

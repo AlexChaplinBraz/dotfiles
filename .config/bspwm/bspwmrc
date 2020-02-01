@@ -1,0 +1,41 @@
+#!/usr/bin/env sh
+
+# Start polybar:
+$HOME/.config/polybar/launch
+
+# Reset rules:
+bspc rule -r "*"
+
+# Configure monitors:
+bspc monitor DVI-1 -d 1 2 3 4 5
+bspc monitor HDMI-0 -d mail playback calendar web manuals
+
+# Make nice looking borders:
+BW=2
+bspc config border_width $BW
+bspc config window_gap -$BW
+for side in top right bottom left ; do
+	bspc config ${side}_padding $BW
+done
+
+# General configuration:
+bspc config automatic_scheme spiral # Closest thing to dwm.
+bspc config focus_follows_pointer true
+bspc config pointer_follows_focus true
+bspc config split_ratio 0.5
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+
+# Set rules for specific programs:
+bspc rule -a Screenkey manage=off
+bspc rule -a qutebrowser desktop=web state=monocle follow=on
+bspc rule -a Google-chrome desktop=web state=monocle follow=on
+bspc rule -a Brave-browser desktop=web state=monocle follow=on
+bspc rule -a St:calcurse desktop=calendar state=fullscreen follow=on
+bspc rule -a St:newsboat desktop=mail state=fullscreen follow=on
+bspc rule -a St:podboat desktop=mail state=fullscreen follow=on
+bspc rule -a St:dyt desktop=playback state=fullscreen follow=on
+bspc rule -a St:ncmpcpp desktop=playback state=fullscreen follow=on
+bspc rule -a mpv desktop=playback state=fullscreen follow=on
+bspc rule -a St:dman desktop=manuals state=fullscreen follow=on
+bspc rule -a Wine state=floating follow=on

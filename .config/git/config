@@ -1,0 +1,5 @@
+[user]
+	name = Alexander Chaplin Braz
+	email = alexchaplinbraz@gmail.com
+[core]
+	editor = nvim

@@ -1,0 +1,98 @@
+[colors]
+background = ${xrdb:background}
+background-wm = #444
+background-alt = #2d2d2d
+foreground = ${xrdb:foreground}
+foreground-alt = #555
+primary = #3c71ea
+secondary = ${xrdb:color3}
+alert = #ed0b0b
+
+[bar/mainmon]
+wm-restack = bspwm
+enable-ipc = true
+width = 100%
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 3
+line-color = #f00
+module-margin-right = 1
+font-0 = Inconsolata:pixelsize=10;
+font-1 = Symbola:pixelsize=10;
+modules-left = bspwm
+modules-right = mpd pulseaudio time
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+cursor-click = pointer
+cursor-scroll = default
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = false
+ws-icon-0 = mail;📧
+ws-icon-1 = calendar;📅
+ws-icon-2 = playback;▶
+ws-icon-3 = web;🕸
+ws-icon-4 = manuals;📚
+ws-icon-default = 🔤
+label-focused = %icon%
+label-focused-background = ${colors.background-wm}
+label-focused-padding = 1
+label-occupied = %icon%
+label-occupied-padding = 1
+label-urgent = %icon%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+label-empty = %icon%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+
+; ### Need a better solution that auto-resizes.
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 20
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-consume> <icon-single> <icon-repeat> <icon-random>  <label-time>  <label-song>
+format-stopped = <icon-play>
+label-song = 𝄞%artist% - %title%
+format-offline = <label-offline>
+label-offline = 🎜 mpd is offline
+icon-play = ⏵
+icon-pause = ⏸
+icon-stop = ⏹
+icon-prev = ⏮
+icon-next = ⏭
+icon-seekb = ⏪
+icon-seekf = ⏩
+icon-random = 🔀
+icon-repeat = 🔁
+icon-repeatone = 🔂
+icon-single = 🔂
+icon-consume = ✀
+toggle-on-foreground = #ff
+toggle-off-foreground = #55
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+label-muted = 🔇 %percentage%%
+label-muted-foreground = #aaa
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+[module/time]
+type = custom/script
+exec = date +"%A, %Y/%m/%d - %H:%M"
+click-left = $TERMINAL -e calcurse
+label = "%output%"
+interval = 5
+format-background = ${colors.background-alt}
+format-padding = 1
+
+; Enable syntax highlighting in vim:
+; vim:ft=dosini
