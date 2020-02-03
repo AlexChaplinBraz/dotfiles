@@ -16,7 +16,7 @@ zmodload zsh/complist
 compinit
 zstyle ':completion:*' menu select
 export KEYTIMEOUT=1
-fpath+=("$HOME/src/pure")
+fpath+=("$HOME/.local/src/pure")
 
 # Include hidden files in autocomplete:
 _comp_options+=(globdots)
