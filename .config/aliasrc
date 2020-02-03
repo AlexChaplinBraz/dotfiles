@@ -30,3 +30,13 @@ alias \
 	psyu="sudo pacman -Syu --ignore=linux"
 	# ^ This is done because later versions of the kernel break support
 	# for my HUION tablet. Need to check from time to time if it's fixed.
+
+# Git:
+alias \
+	g="git" \
+	gs="git status" \
+	gd="git diff" \
+	ga="git add" \
+	gcm="git commit -m" \
+	gpushom="git push origin master" \
+	gpullom="git pull origin master"
