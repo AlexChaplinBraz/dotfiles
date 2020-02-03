@@ -27,7 +27,10 @@ super + shift + d
 	dmenu_run
 super + d
 	$TERMINAL -e ddiropen $LSHARE/dirmarks \
-	"lf,vifm,sxiv -ta,sxiv -tar,sxiv -afr"
+	"lf,vifm,sxiv -ta,sxiv -tar,sxiv -far"
+super + alt + d
+	$TERMINAL -e dlocate \
+	'nvim,lf,vifm,sxiv -ta,sxiv -tar,sxiv -far,dwine'
 super + p
 	dpass
 super + e
@@ -68,8 +71,8 @@ super + {_,shift +} XF86AudioPrev
 	mpc seek -{10,60}
 super + {_,shift +} XF86AudioNext
 	mpc seek +{10,60}
-#XF86HomePage
-### No use for it yet.
+alt + XF86HomePage
+	dkeys
 super + XF86Explorer
 	dmnt
 
