@@ -21,6 +21,7 @@ alias \
 	wg64-cfg="WINEARCH=win64 WINEPREFIX=/home/alex/wine/wg64 winecfg" \
 	c="cd .." \
 	v="nvim" \
+	o="xdg-open" \
 	sheet="sc-im" \
 	ka="killall" \
 	sc="shellcheck" \
