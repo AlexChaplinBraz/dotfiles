@@ -42,7 +42,7 @@ super + r
 super + shift + e
 	demoji
 super + w
-	dbuku
+	dmarks "$LSHARE/webmarks"
 super + o ; {b,m,n,p,c,y,s}
 	{$BROWSER,\
 	$TERMINAL -n ncmpcpp -e ncmpcpp,\
