@@ -38,6 +38,8 @@ alias \
 	gs="git status" \
 	gd="git diff" \
 	ga="git add" \
+	gc="git commit" \
 	gcm="git commit -m" \
+	gca="git commit --amend" \
 	gpushom="git push origin master" \
 	gpullom="git pull origin master"
