@@ -18,6 +18,9 @@ for side in top right bottom left ; do
 	bspc config ${side}_padding $BW
 done
 
+# Set default cursor:
+xsetroot -cursor_name left_ptr
+
 # General configuration:
 bspc config automatic_scheme spiral # Closest thing to dwm.
 bspc config focus_follows_pointer true
