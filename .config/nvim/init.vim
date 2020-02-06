@@ -2,23 +2,17 @@ let mapleader =" "
 
 " Some basics:
 set number relativenumber
-highlight ColorColumn ctermbg=black guibg=black
 set tabstop=4
 set softtabstop=0 noexpandtab
 set shiftwidth=4
 set clipboard+=unnamedplus
 
-" Force the cursor onto a new line after 80 characters:
+" Column limit configuration:
 set textwidth=80
-
-" However, in Git commit messages, let’s make it 72 characters:
 autocmd FileType gitcommit set textwidth=72
-
-" Colour the 81st (or 73rd) column so that we don’t type over our limit:
 set colorcolumn=+1
-
-" In Git commit messages, also colour the 51st column (for titles):
 autocmd FileType gitcommit set colorcolumn+=51
+highlight ColorColumn ctermbg=black guibg=black
 
 " Turn off search highlighting until next search:
 nnoremap <F3> :noh<CR>
