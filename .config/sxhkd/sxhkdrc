@@ -51,12 +51,8 @@ super + o ; {b,m,n,p,c,y,s}
 	$TERMINAL -n calcurse -e calcurse,\
 	$TERMINAL -n dyt -e dyt,\
 	$TERMINAL -n dnewsh -e dnewsh}
-super + g ; {b,r,a}
-	google-chrome-stable --profile-directory={Default,"Profile 1","Profile 2"}
-super + b ; {a,b,r,c}
-	brave --profile-directory={Default,"Profile 1","Profile 2","Profile 3"}
-super + shift + b ; {m,c}
-	{blmas,blcomp}
+super + b
+	dblend
 
 # Function keys:
 XF86AudioMute
