@@ -27,7 +27,8 @@ alias \
 	sc="shellcheck" \
 	spt="speedtest-cli" \
 	yt="youtube-viewer" \
-	p="sudo pacman --needed" \
+	p="sudo pacman" \
+	pn="sudo pacman --needed" \
 	psyu="sudo pacman -Syu --ignore=linux"
 	# ^ This is done because later versions of the kernel break support
 	# for my HUION tablet. Need to check from time to time if it's fixed.
