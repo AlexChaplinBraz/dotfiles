@@ -75,6 +75,10 @@ zle -N zle-keymap-select
 # Use beam shape cursor for each new prompt.
 precmd() { echo -ne '\e[5 q' ;}
 
+# Fix for not being able to search history after enabling vi mode:
+bindkey -M vicmd '^r' history-incremental-search-backward
+bindkey -M viins '^r' history-incremental-search-backward
+
 # Use lf to switch directories and bind it to ctrl-o:
 lfcd () {
     tmp="$(mktemp)"
