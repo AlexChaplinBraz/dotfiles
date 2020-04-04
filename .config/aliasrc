@@ -13,12 +13,12 @@ alias \
 
 # Abbreviations:
 alias \
-	wg32="WINEARCH=win32 WINEPREFIX=/home/alex/wine/wg32 wine" \
-	wg32-tricks="WINEARCH=win32 WINEPREFIX=/home/alex/wine/wg32 winetricks" \
-	wg32-cfg="WINEARCH=win32 WINEPREFIX=/home/alex/wine/wg32 winecfg" \
-	wg64="WINEARCH=win64 WINEPREFIX=/home/alex/wine/wg64 wine" \
-	wg64-tricks="WINEARCH=win64 WINEPREFIX=/home/alex/wine/wg64 winetricks" \
-	wg64-cfg="WINEARCH=win64 WINEPREFIX=/home/alex/wine/wg64 winecfg" \
+	wg32="WINEARCH=win32 WINEPREFIX=/home/alex/.local/wine/wg32 wine" \
+	wg32-tricks="WINEARCH=win32 WINEPREFIX=/home/alex/.local/wine/wg32 winetricks" \
+	wg32-cfg="WINEARCH=win32 WINEPREFIX=/home/alex/.local/wine/wg32 winecfg" \
+	wg64="WINEARCH=win64 WINEPREFIX=/home/alex/.local/wine/wg64 wine" \
+	wg64-tricks="WINEARCH=win64 WINEPREFIX=/home/alex/.local/wine/wg64 winetricks" \
+	wg64-cfg="WINEARCH=win64 WINEPREFIX=/home/alex/.local/wine/wg64 winecfg" \
 	c="cd .." \
 	v="nvim" \
 	o="xdg-open" \
