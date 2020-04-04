@@ -3,7 +3,7 @@
 # Default programs:
 export EDITOR="nvim"
 export VISUAL="nvim"
-export IMAGE_VIEWER="sxiv"
+export IMAGE_VIEWER="sxiv -a"
 export VIDEO_VIEWER="mpv"
 export TERMINAL="st"
 export BROWSER="dbrowsel"
@@ -20,6 +20,9 @@ export XDG_DOWNLOAD_DIR="$HOME/down"
 export XDG_MUSIC_DIR="$HOME/music"
 export XDG_PICTURES_DIR="$HOME/images"
 export XDG_VIDEOS_DIR="$HOME/videos"
+
+# Default paths:
+export MAIL="$XDG_DATA_HOME/mail"
 
 # Less color configuration:
 export LESS=-R
@@ -43,9 +46,14 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export LESSHISTFILE="$XDG_CONFIG_HOME/lesshist"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export GOPATH="$HOME/.local/go"
+export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
+export CCACHE_CONFIGPATH="$HOME/.cache/ccache"
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export INPUTRC="$XDG_CONFIG_HOME/inputrc"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
 # Password generation:
-export DPASS_OPTS='-Cf "$(find "$HOME/notes" -type f | shuf -n1)"'
+export DPASS_OPTS='-C "$(find "$XDG_DOCUMENTS_DIR/notes" -type f | shuf -n1)"'
 
 # Store default $PATH to use for "aliases":
 export DEFAULT_PATH="$PATH"
