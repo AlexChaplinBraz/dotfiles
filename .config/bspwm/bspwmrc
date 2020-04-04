@@ -34,11 +34,11 @@ bspc rule -a Screenkey manage=off
 bspc rule -a qutebrowser desktop=web state=monocle follow=on
 bspc rule -a Google-chrome desktop=web state=monocle follow=on
 bspc rule -a Brave-browser desktop=web state=monocle follow=on
-bspc rule -a St:calcurse desktop=calendar state=fullscreen follow=on
-bspc rule -a St:newsboat desktop=mail state=fullscreen follow=on
-bspc rule -a St:podboat desktop=mail state=fullscreen follow=on
-bspc rule -a St:dyt desktop=playback state=fullscreen follow=on
-bspc rule -a St:ncmpcpp desktop=playback state=fullscreen follow=on
+bspc rule -a St:calcurse desktop=calendar state=monocle follow=on
+bspc rule -a St:newsboat desktop=mail state=monocle follow=on
+bspc rule -a St:podboat desktop=mail state=monocle follow=on
+bspc rule -a St:ncmpcpp desktop=playback state=monocle follow=on
 bspc rule -a mpv desktop=playback state=fullscreen follow=on
-bspc rule -a St:dman desktop=manuals state=fullscreen follow=on
+bspc rule -a St:dman desktop=manuals state=monocle follow=on
 bspc rule -a Wine state=floating follow=on
+bspc rule -a Blender state=fullscreen follow=on
