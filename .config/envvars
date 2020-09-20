@@ -1,11 +1,12 @@
 # Environmental variables to be sourced in the profile file.
 
 # Default programs:
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="emacsclient -cn"
+export VISUAL="emacsclient -cn"
+export ALTERNATE_EDITOR=""
 export IMAGE_VIEWER="sxiv -a"
 export VIDEO_VIEWER="mpv"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 export BROWSER="dbrowsel"
 export READER="zathura"
 export FILE="lf"
