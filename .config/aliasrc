@@ -2,45 +2,38 @@
 
 # Default settings:
 alias \
-	cp="cp -iv" \
-	mv="mv -iv" \
-	rm="rm -v" \
-	mkdir="mkdir -pv" \
-	ll="ls -alhvNF --color=always \
-	--group-directories-first --time-style=long-iso" \
-	grep="grep --color=auto" \
-	diff="diff --color=auto"
+    cp='cp -iv' \
+    mv='mv -iv' \
+    rm='rm -v' \
+    mkdir='mkdir -pv' \
+    ll='exa -Flag --git --colour=always --time-style=long-iso --group-directories-first' \
+    grep='grep --color=auto' \
+    diff='diff --color=auto'
 
 # Abbreviations:
 alias \
-	wg32="WINEARCH=win32 WINEPREFIX=/home/alex/.local/wine/wg32 wine" \
-	wg32-tricks="WINEARCH=win32 WINEPREFIX=/home/alex/.local/wine/wg32 winetricks" \
-	wg32-cfg="WINEARCH=win32 WINEPREFIX=/home/alex/.local/wine/wg32 winecfg" \
-	wg64="WINEARCH=win64 WINEPREFIX=/home/alex/.local/wine/wg64 wine" \
-	wg64-tricks="WINEARCH=win64 WINEPREFIX=/home/alex/.local/wine/wg64 winetricks" \
-	wg64-cfg="WINEARCH=win64 WINEPREFIX=/home/alex/.local/wine/wg64 winecfg" \
-	c="cd .." \
-	v="nvim" \
-	o="xdg-open" \
-	sheet="sc-im" \
-	ka="killall" \
-	sc="shellcheck" \
-	spt="speedtest-cli" \
-	yt="youtube-viewer" \
-	p="sudo pacman" \
-	pn="sudo pacman --needed" \
-	psyu="sudo pacman -Syu --ignore=linux"
-	# ^ This is done because later versions of the kernel break support
-	# for my HUION tablet. Need to check from time to time if it's fixed.
+    c='cd ..' \
+    e='emacsclient -cn' \
+    v='nvim' \
+    o='xdg-open' \
+    ka='killall' \
+    sc='shellcheck' \
+    spt='speedtest-cli' \
+    yt='youtube-viewer' \
+    p='sudo pacman' \
+    pn='sudo pacman --needed' \
+    psyu='sudo pacman -Syu --ignore=linux'
+    # ^ This is done because later versions of the kernel break support
+    # for my HUION tablet. Need to check from time to time if it's fixed.
 
 # Git:
 alias \
-	g="git" \
-	gs="git status" \
-	gd="git diff" \
-	ga="git add" \
-	gc="git commit" \
-	gcm="git commit -m" \
-	gca="git commit --amend" \
-	gpushom="git push origin master" \
-	gpullom="git pull origin master"
+    g='git' \
+    gs='git status' \
+    gd='git diff' \
+    ga='git add' \
+    gc='git commit' \
+    gcm='git commit -m' \
+    gca='git commit --amend' \
+    gpushom='git push origin master' \
+    gpullom='git pull origin master'
