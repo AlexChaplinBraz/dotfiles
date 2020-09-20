@@ -1,8 +1,5 @@
 #!/usr/bin/env sh
 
-# Start polybar:
-$HOME/.config/polybar/launch
-
 # Reset rules:
 bspc rule -r "*"
 
