@@ -61,4 +61,4 @@ export DPASS_OPTS='-C "$(find "$XDG_DOCUMENTS_DIR/notes" -type f | shuf -n1)"'
 export DEFAULT_PATH="$PATH"
 
 # Add $LBIN to $PATH, so that it takes preference:
-export PATH="$LBIN:$PATH"
+export PATH="$LBIN:$CARGO_HOME/bin:$HOME/.emacs.d/bin:$PATH"
