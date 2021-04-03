@@ -2,13 +2,13 @@ let mapleader =" "
 
 " Some basics:
 set number relativenumber
+set expandtab
 set tabstop=4
-set softtabstop=0 noexpandtab
 set shiftwidth=4
 set clipboard+=unnamedplus
 
 " Column limit configuration:
-set textwidth=80
+set textwidth=120
 autocmd FileType gitcommit set textwidth=72
 set colorcolumn=+1
 autocmd FileType gitcommit set colorcolumn+=51
@@ -42,7 +42,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Check file in shellcheck:
-map <leader>s :!clear && shellcheck %<CR>
+"map <leader>s :!clear && shellcheck %<CR>
 
 " Keep cursor in the center:
 set scrolloff=5
@@ -82,3 +82,4 @@ autocmd BufWritePost *sxhkdrc !pkill -SIGUSR1 sxhkd
 " Make calcurse notes' syntax markdown:
 autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
 autocmd BufRead,BufNewFile $HOME/.local/share/calcurse/notes/* set filetype=markdown
+

@@ -1,20 +1,21 @@
-# Alexander Chaplin Braz's configuration files (mostly)
+# Alexander Chaplin Braz's dotfiles
 
-One of my life goals is to keep my $HOME clean and organized, that mostly means
-that when I run `ls -alh` in $HOME everything fits vertially in my terminal.
-That's why I chose to go minimal and build my system from the ground up,
-avoiding programs that put their junk there without giving any way to change it.
+One of my life goals is to keep my HOME clean and organized, which mostly means that when I run `ls -alh` in HOME
+everything fits vertically in my terminal. That's one of the reasons why I chose to go minimal and build my system
+from the ground up, avoiding programs that put their junk there without giving any way to change it.
 
-This repository is populated with a script called
-[rdot](https://github.com/AlexChaplinBraz/minor-scripts/blob/master/rdot),
-which uses rsync to copy a manually selected list of files.
-This way I don't have to have .git, .gitignore and README.md
-cluttering my $HOME.
+The tool I use for managing my configs is called [trackconf](https://github.com/AlexChaplinBraz/shell-scripts/blob/master/trackconf),
+which is a script I wrote myself.
 
-UPDATE: I decided to temporarily give up on this because I was spending more
-time configuring everything than doing actual work. So I've changed my distro
-to Manjaro so that most everything works out of the box and changed from my
-Emacs config to Doom Emacs for the same reason. I'm even using other software
-like VSCode just to minimize configuring stuff. I do very much enjoy tinkering,
-but it had a negative effect on my time. I'll do it all over again once I buy
-a new computer, but until then this repo won't be updated.
+It lets me use `ranger`, which is a terminal file browser, to select the files I wish to add to my dotfiles repository,
+copying them here and symlinking them back to where they belong. It also lets me deploy those configs with the same
+method but in reverse, selecting the configs from this repo and symlinking them to where they belong, creating any
+missing directories.
+
+Due to the creation of this script, I no longer need to delete old configs for programs I no longer use, so some of
+these files may be outdated due to not being in use anymore, but I keep them just in case.
+
+# Legal
+
+MIT License.
+

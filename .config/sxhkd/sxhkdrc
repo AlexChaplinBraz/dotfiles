@@ -1,51 +1,51 @@
 # bspwm:
-super + {F4,F12}
-    bspc {quit,wm -r}
-super + {_,shift + }q
-    bspc node -{c,k}
-super + m
-    bspc desktop -l next
-super + {_,shift + }{h,j,k,l}
-    bspc node -{f,s} {west,south,north,east}
-super + {Tab,grave}
-    bspc {node,desktop} -f last
-super + {_,shift + }{1-9,0}
-    bspc {desktop -f,node -d} '^{1-9,10}'
-super + {t,shift + t,s,f}
-    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-super + button2
-    bspc node -g sticky; bspc node -g locked
-super + {_,shift +} c
-    bspc node -f {next,prev}.local
-super + ctrl + {Left,Right}
-    bspc desktop -f {prev,next}.local
+#super + {F4,F12}
+#    bspc {quit,wm -r}
+#super + {_,shift + }q
+#    bspc node -{c,k}
+#super + m
+#    bspc desktop -l next
+#super + {_,shift + }{h,j,k,l}
+#    bspc node -{f,s} {west,south,north,east}
+#super + {Tab,grave}
+#    bspc {node,desktop} -f last
+#super + {_,shift + }{1-9,0}
+#    bspc {desktop -f,node -d} '^{1-9,10}'
+#super + {t,shift + t,s,f}
+#    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+#super + button2
+#    bspc node -g sticky; bspc node -g locked
+#super + {_,shift +} c
+#    bspc node -f {next,prev}.local
+#super + ctrl + {Left,Right}
+#    bspc desktop -f {prev,next}.local
 
 # Open programs:
-super + Return
-    $TERMINAL
-super + d
-    dmenu_run
-super + e
-    emacsclient -cn
-super + alt + e
-    $TERMINAL -e dedit -r
-XF86Explorer
-    dlocate \
-    'emacsclient -cn,$TERMINAL -e nvim,$TERMINAL -e lf,$TERMINAL -e sxiv -ta,$TERMINAL -e sxiv -tar,$TERMINAL -e sxiv -far'
-super + o ; {t,w,m,c,y,s,p,e,b,r,j,k,f}
-    {dtimer "$HOME/.local/share/alert.wav",\
-    $BROWSER,\
-    $TERMINAL -e ncmpcpp,\
-    $TERMINAL -e calcurse,\
-    dyt,\
-    dnewsh,\
-    dpass,\
-    dedit,\
-    dblend,\
-    $TERMINAL -e dman,\
-    demoji,\
-    dmarks "$LSHARE/webmarks",\
-    emacsclient -ce "(elfeed)"}
+#super + Return
+#    $TERMINAL
+#super + d
+#    dmenu_run
+#super + e
+#    emacsclient -cn
+#super + alt + e
+#    $TERMINAL -e dedit -r
+#XF86Explorer
+#    dlocate \
+#    'emacsclient -cn,$TERMINAL -e nvim,$TERMINAL -e lf,$TERMINAL -e sxiv -ta,$TERMINAL -e sxiv -tar,$TERMINAL -e sxiv -far'
+#super + o ; {t,w,m,c,y,s,p,e,b,r,j,k,f}
+#    {dtimer "$HOME/.local/share/alert.wav",\
+#    $BROWSER,\
+#    $TERMINAL -e ncmpcpp,\
+#    $TERMINAL -e calcurse,\
+#    dyt,\
+#    dnewsh,\
+#    dpass,\
+#    dedit,\
+#    dblend,\
+#    $TERMINAL -e dman,\
+#    demoji,\
+#    dmarks "$LSHARE/webmarks",\
+#    emacsclient -ce "(elfeed)"}
 
 # Function keys:
 XF86AudioMute
@@ -60,19 +60,8 @@ super + {_,shift +} XF86AudioPrev
     mpc seek -{10,60}
 super + {_,shift +} XF86AudioNext
     mpc seek +{10,60}
-alt + XF86HomePage
-    dkeys
-super + XF86Explorer
-    dmnt
+XF86Explorer
+    dpower
+XF86HomePage
+    $TERMINAL -e dman
 
-# System prompts:
-super + alt + s
-    dprompt "Suspend?" "sudo systemctl suspend"
-super + alt + l
-    dprompt "Lock?" "sxlock -ld"
-#super + alt + h
-    #dprompt "Hibernate?" "sudo systemctl hibernate"
-super + alt + r
-    dprompt "Reboot?" "reboot"
-super + alt + p
-    dprompt "Power off?" "poweroff"

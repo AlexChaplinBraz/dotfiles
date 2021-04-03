@@ -1,22 +1,17 @@
-# Enable colors and change prompt:
-autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
-# Load aliases if existent:
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
-
-# History (need to actually mkdir for it to work):
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE="$HOME/.cache/zsh/history"
-
 # Basics:
 autoload -U compinit
 zmodload zsh/complist
-compinit
+compinit -d $HOME/.cache/zsh/zcompdump-$ZSH_VERSION
 zstyle ':completion:*' menu select
 export KEYTIMEOUT=1
-fpath+=("$HOME/.local/src/pure")
+setopt autocd
+
+# History
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=$HOME/.config/zsh/.zhistory
+setopt share_history
+setopt histignorealldups
 
 # Run through a keyboard definition setup to fix some keys
 # not working properly and conflicting with vi mode.
@@ -44,9 +39,6 @@ source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE
 # Include hidden files in autocomplete:
 _comp_options+=(globdots)
 
-# Better LC_COLORS:
-. /usr/share/LS_COLORS/dircolors.sh
-
 # Vi mode:
 bindkey -v
 
@@ -59,16 +51,15 @@ bindkey -v '^?' backward-delete-char
 
 # Change cursor shape for different vi modes:
 function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
+    if [[ ${KEYMAP} == vicmd ]] ||
+       [[ $1 = 'block' ]]; then
+        echo -ne '\e[1 q'
+    elif [[ ${KEYMAP} == main ]] ||
+         [[ ${KEYMAP} == viins ]] ||
+         [[ ${KEYMAP} = '' ]] ||
+         [[ $1 = 'beam' ]]; then
+        echo -ne '\e[5 q'
+    fi
 }
 zle -N zle-keymap-select
 
@@ -79,10 +70,10 @@ precmd() { echo -ne '\e[5 q' ;}
 bindkey -M vicmd '^r' history-incremental-search-backward
 bindkey -M viins '^r' history-incremental-search-backward
 
-# Use lf to switch directories and bind it to ctrl-o:
-lfcd () {
+# Use ranger to switch directories and bind it to ctrl-o:
+rancd () {
     tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
+    ranger --choosedir="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
@@ -93,9 +84,9 @@ lfcd () {
         fi
     fi
 }
-bindkey -s '^o' 'lfcd\n'
+bindkey -s '^o' 'rancd\n'
 
-# Edit line in $EDITOR with ctrl-e:
+# Edit line in EDITOR with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd '^e' edit-command-line
 bindkey -M viins '^e' edit-command-line
@@ -103,10 +94,12 @@ bindkey -M viins '^e' edit-command-line
 # Load zsh-syntax-highlighting:
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
-# Initialize prompt:
-autoload -U promptinit; promptinit
-prompt pure
+# Load aliases:
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
-# Single line prompt:
-#prompt_newline='%666v'
-#PROMPT=" $PROMPT"
+# Initialize prompt:
+eval "$(starship init zsh)"
+
+# Initialize zoxide:
+eval "$(zoxide init zsh)"
+
