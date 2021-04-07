@@ -27,7 +27,7 @@ export LOCAL_BIN=~/.local/bin
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export DPASS_OPTS='-C $XDG_DOCUMENTS_DIR/notes'
 export NEWSH_NAME='Alexander Chaplin Braz'
-export NEWSH_WEBSITE=https://alexchaplinbraz.com
+export NEWSH_EMAIL=contact@alexchaplinbraz.com
 export TRACKCONF_DOTFILES=$PROJECTS_DIR/dotfiles
 export LESS='-i -J -M -R -W -x4 -z-4'
 
